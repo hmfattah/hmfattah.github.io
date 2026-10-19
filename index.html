@@ -50,8 +50,83 @@
 
     <!-- ===== Page content ===== -->
     <main class="content">
-      <h1>Welcome</h1>
-      <p class="todo">TODO: .....</p>
+      <h1>My Story</h1>
+
+      <blockquote class="hook">
+        <p>&ldquo;I learn by exploring, and I teach by helping others explore.&rdquo;</p>
+      </blockquote>
+
+      <p>My journey has taken me from Bangladesh to the United States, through experiences in teaching, software development, and research. Each experience has shaped how I think, learn, and connect with people. I love traveling, discovering new places, and learning from different perspectives. I also enjoy sports and athletics, which keep me active and remind me of the value of teamwork, discipline, and perseverance.</p>
+
+      <p>Teaching has always been close to my heart. I believe students learn best when they can experiment, make mistakes, and discover things for themselves. This belief also drives my PhD research in Information Science at the University of Arizona, where I explore how hands-on AI learning environments can make learning more accessible, engaging, and meaningful.</p>
+
+      <section class="gallery-section" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Gallery</h2>
+      <!-- Each photo: <figure> with the image file, alt text (what the photo shows)
+           and a caption (shown on hover and in the full-size viewer).
+           Tile sizes: gallery__item--large (2x2), --wide (2x1), --tall (1x2), none = 1x1.
+           The order and sizes below are arranged so the mosaic fills complete rows;
+           adding/removing photos or changing sizes may leave gaps.
+           object-position on an <img> controls which part of the photo stays in view. -->
+      <div class="gallery">
+        <figure class="gallery__item gallery__item--large">
+          <a class="gallery__link" href="assets/img/gallery/photo-03.jpg"><img src="assets/img/gallery/photo-03.jpg" alt="People discussing research posters at a poster session at the University of Arizona" loading="lazy"></a>
+          <figcaption>Poster Presentation, University of Arizona</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall">
+          <a class="gallery__link" href="assets/img/gallery/photo-02.jpg"><img src="assets/img/gallery/photo-02.jpg" alt="Standing beside my research poster at the EDUCAUSE conference" loading="lazy"></a>
+          <figcaption>Poster Presentation, EDUCAUSE</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a class="gallery__link" href="assets/img/gallery/photo-01.jpg"><img src="assets/img/gallery/photo-01.jpg" alt="In graduation regalia on the steps of Old Main at the University of Arizona" loading="lazy"></a>
+          <figcaption>MS Graduation, University of Arizona</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a class="gallery__link" href="assets/img/gallery/photo-13.jpg"><img src="assets/img/gallery/photo-13.jpg" alt="Students working on laptops during a programming contest at KUET" loading="lazy"></a>
+          <figcaption>Programming Contest, KUET</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--wide">
+          <a class="gallery__link" href="assets/img/gallery/photo-14.jpg"><img src="assets/img/gallery/photo-14.jpg" alt="A large group of classmates cheering together by the water on a batch tour" loading="lazy"></a>
+          <figcaption>Batch Tour, 2012</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a class="gallery__link" href="assets/img/gallery/photo-09.jpg"><img src="assets/img/gallery/photo-09.jpg" alt="Tossing a graduation cap into the air at a graduation ceremony in Bangladesh" loading="lazy" style="object-position: 50% 0%"></a>
+          <figcaption>Graduation, Bangladesh</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall">
+          <a class="gallery__link" href="assets/img/gallery/photo-05.jpg"><img src="assets/img/gallery/photo-05.jpg" alt="Sitting on a rocky ledge above the Grand Canyon" loading="lazy"></a>
+          <figcaption>Grand Canyon, Arizona</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall">
+          <a class="gallery__link" href="assets/img/gallery/photo-08.jpg"><img src="assets/img/gallery/photo-08.jpg" alt="Standing between tall red-rock walls in a narrow canyon at Bryce Canyon" loading="lazy"></a>
+          <figcaption>Bryce Canyon, Utah</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--wide">
+          <a class="gallery__link" href="assets/img/gallery/photo-04.jpg"><img src="assets/img/gallery/photo-04.jpg" alt="A team paddling a yellow raft through whitewater rapids in Colorado" loading="lazy"></a>
+          <figcaption>Whitewater Rafting, Colorado</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a class="gallery__link" href="assets/img/gallery/photo-12.jpg"><img src="assets/img/gallery/photo-12.jpg" alt="Sitting on the cliff edge above Horseshoe Bend" loading="lazy"></a>
+          <figcaption>Horseshoe Bend, Arizona</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall">
+          <a class="gallery__link" href="assets/img/gallery/photo-11.jpg"><img src="assets/img/gallery/photo-11.jpg" alt="Walking across the white sand dunes of White Sands National Park" loading="lazy"></a>
+          <figcaption>White Sands National Park, New Mexico</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall">
+          <a class="gallery__link" href="assets/img/gallery/photo-07.jpg"><img src="assets/img/gallery/photo-07.jpg" alt="Parasailing high above the sea in Mexico" loading="lazy"></a>
+          <figcaption>Parasailing, Mexico</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a class="gallery__link" href="assets/img/gallery/photo-06.jpg"><img src="assets/img/gallery/photo-06.jpg" alt="Holding up trophies and medals at the KUET annual sports event" loading="lazy" style="object-position: 50% 25%"></a>
+          <figcaption>Best Athlete, KUET Annual Sports</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <a class="gallery__link" href="assets/img/gallery/photo-10.jpg"><img src="assets/img/gallery/photo-10.jpg" alt="Smiling while holding a soccer tournament champion trophy" loading="lazy" style="object-position: 50% 20%"></a>
+          <figcaption>Soccer Tournament Champion</figcaption>
+        </figure>
+      </div>
+      </section>
     </main>
 
   </div>
@@ -59,6 +134,18 @@
   <footer class="site-footer">
     <div class="site-footer__inner">&copy; 2026 H M Abdul Fattah</div>
   </footer>
+
+  <!-- Full-size photo viewer for the gallery -->
+  <dialog class="lightbox" aria-label="Photo viewer">
+    <button class="lightbox__btn lightbox__close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox__btn lightbox__prev" type="button" aria-label="Previous photo">&#8249;</button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" src="" alt="">
+      <figcaption class="lightbox__caption"></figcaption>
+    </figure>
+    <button class="lightbox__btn lightbox__next" type="button" aria-label="Next photo">&#8250;</button>
+  </dialog>
+  <script src="assets/js/gallery.js"></script>
 
 </body>
 </html>
