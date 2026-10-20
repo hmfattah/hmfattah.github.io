@@ -12,6 +12,8 @@
   --border: #eaeced;
   --nav-bar: #bdc1c4;
   --bg: #ffffff;
+  --highlight: #ffc53d;      /* attention color for interactive callouts */
+  --highlight-text: #1f2328;
 
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --page-width: 1180px;
@@ -291,6 +293,11 @@ img {
   background: var(--border);
 }
 
+.gallery__item--feature {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
 .gallery__item--large {
   grid-column: span 2;
   grid-row: span 2;
@@ -361,6 +368,46 @@ img {
   }
 }
 
+/* Callout inviting visitors to interact with a photo */
+.gallery__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 10px;
+  background: var(--highlight);
+  color: var(--highlight-text);
+  line-height: 1.2;
+  pointer-events: none;
+  animation: badge-pulse 2.4s ease-out infinite;
+}
+
+.gallery__badge strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.gallery__badge small {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Soft glowing ring that pulses outward to draw the eye */
+@keyframes badge-pulse {
+  0% {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(255, 197, 61, 0.75);
+  }
+  70% {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 14px rgba(255, 197, 61, 0);
+  }
+  100% {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(255, 197, 61, 0);
+  }
+}
+
 /* Lightbox (full-size viewer) */
 .lightbox {
   width: 100vw;
@@ -371,6 +418,7 @@ img {
   padding: 1rem;
   border: 0;
   background: transparent;
+  overflow: hidden;
 }
 
 .lightbox[open] {
@@ -390,20 +438,40 @@ img {
 
 .lightbox__img {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 72vh;
   margin: 0 auto;
   border-radius: 4px;
+  transform-origin: center;
+  transition: transform 0.2s ease;
+  user-select: none;
 }
 
+.lightbox.is-zoomed .lightbox__img {
+  cursor: grab;
+  touch-action: none;
+}
+
+.lightbox.is-dragging .lightbox__img {
+  cursor: grabbing;
+  transition: none;
+}
+
+/* Caption sits above the photo so it stays readable while zoomed */
 .lightbox__caption {
-  margin-top: 0.75rem;
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0.75rem auto 0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  background: rgba(17, 19, 21, 0.6);
   text-align: center;
   font-size: 0.95rem;
   color: #e9ecee;
 }
 
 .lightbox__btn {
-  position: fixed;
   width: 44px;
   height: 44px;
   display: grid;
@@ -422,9 +490,53 @@ img {
   background: rgba(255, 255, 255, 0.3);
 }
 
+.lightbox__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next,
+.lightbox__zoom {
+  position: fixed;
+  z-index: 3;
+}
+
 .lightbox__close {
   top: 1rem;
   right: 1rem;
+}
+
+/* Zoom controls: [-] 100% [+] */
+.lightbox__zoom {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(17, 19, 21, 0.6);
+}
+
+.lightbox__zoom-level {
+  min-width: 3.75rem;
+  padding: 0.25rem 0.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #e9ecee;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.lightbox__zoom-level:hover,
+.lightbox__zoom-level:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .lightbox__prev,
@@ -444,8 +556,14 @@ img {
 @media (prefers-reduced-motion: reduce) {
   .gallery__link img,
   .gallery__item figcaption,
+  .lightbox__img,
   .site-nav a::after {
     transition: none;
+  }
+
+  .gallery__badge {
+    animation: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -543,6 +661,24 @@ img {
   .gallery {
     --cols: 2;
     --gap: 0.5rem;
+  }
+
+  .gallery__item--feature {
+    grid-column: span 2;
+  }
+
+  .gallery__badge {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .gallery__badge strong {
+    font-size: 0.85rem;
+  }
+
+  .gallery__badge small {
+    font-size: 0.7rem;
   }
 
   .lightbox__prev,

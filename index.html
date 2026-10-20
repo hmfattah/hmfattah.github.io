@@ -64,7 +64,7 @@
       <h2 id="gallery-title">Gallery</h2>
       <!-- Each photo: <figure> with the image file, alt text (what the photo shows)
            and a caption (shown on hover and in the full-size viewer).
-           Tile sizes: gallery__item--large (2x2), --wide (2x1), --tall (1x2), none = 1x1.
+           Tile sizes: gallery__item--feature (3x2), --large (2x2), --wide (2x1), --tall (1x2), none = 1x1.
            The order and sizes below are arranged so the mosaic fills complete rows;
            adding/removing photos or changing sizes may leave gaps.
            object-position on an <img> controls which part of the photo stays in view. -->
@@ -86,8 +86,8 @@
           <figcaption>Programming Contest, KUET</figcaption>
         </figure>
         <figure class="gallery__item gallery__item--wide">
-          <a class="gallery__link" href="assets/img/gallery/photo-14.jpg"><img src="assets/img/gallery/photo-14.jpg" alt="A large group of classmates cheering together by the water on a batch tour" loading="lazy"></a>
-          <figcaption>Batch Tour, 2012</figcaption>
+          <a class="gallery__link" href="assets/img/gallery/photo-04.jpg"><img src="assets/img/gallery/photo-04.jpg" alt="A team paddling a yellow raft through whitewater rapids in Colorado" loading="lazy"></a>
+          <figcaption>Whitewater Rafting, Colorado</figcaption>
         </figure>
         <figure class="gallery__item">
           <a class="gallery__link" href="assets/img/gallery/photo-09.jpg"><img src="assets/img/gallery/photo-09.jpg" alt="Tossing a graduation cap into the air at a graduation ceremony in Bangladesh" loading="lazy" style="object-position: 50% 0%"></a>
@@ -97,25 +97,27 @@
           <a class="gallery__link" href="assets/img/gallery/photo-05.jpg"><img src="assets/img/gallery/photo-05.jpg" alt="Sitting on a rocky ledge above the Grand Canyon" loading="lazy"></a>
           <figcaption>Grand Canyon, Arizona</figcaption>
         </figure>
+        <!-- Interactive photo: the badge invites visitors to open it and zoom in -->
+        <figure class="gallery__item gallery__item--feature">
+          <a class="gallery__link" href="assets/img/gallery/photo-14.jpg"><img src="assets/img/gallery/photo-14.jpg" alt="A large group of classmates cheering together by the water on a batch tour" loading="lazy" style="object-position: 50% 60%"></a>
+          <span class="gallery__badge" aria-hidden="true"><strong>🔍 Can you find me?</strong><small>Open the photo and zoom in</small></span>
+          <figcaption>Batch Tour, 2014 · Over a decade ago! Can you spot me among 50+ faces? 👀</figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall">
+          <a class="gallery__link" href="assets/img/gallery/photo-07.jpg"><img src="assets/img/gallery/photo-07.jpg" alt="Parasailing high above the sea in Mexico" loading="lazy"></a>
+          <figcaption>Parasailing, Mexico</figcaption>
+        </figure>
         <figure class="gallery__item gallery__item--tall">
           <a class="gallery__link" href="assets/img/gallery/photo-08.jpg"><img src="assets/img/gallery/photo-08.jpg" alt="Standing between tall red-rock walls in a narrow canyon at Bryce Canyon" loading="lazy"></a>
           <figcaption>Bryce Canyon, Utah</figcaption>
-        </figure>
-        <figure class="gallery__item gallery__item--wide">
-          <a class="gallery__link" href="assets/img/gallery/photo-04.jpg"><img src="assets/img/gallery/photo-04.jpg" alt="A team paddling a yellow raft through whitewater rapids in Colorado" loading="lazy"></a>
-          <figcaption>Whitewater Rafting, Colorado</figcaption>
-        </figure>
-        <figure class="gallery__item">
-          <a class="gallery__link" href="assets/img/gallery/photo-12.jpg"><img src="assets/img/gallery/photo-12.jpg" alt="Sitting on the cliff edge above Horseshoe Bend" loading="lazy"></a>
-          <figcaption>Horseshoe Bend, Arizona</figcaption>
         </figure>
         <figure class="gallery__item gallery__item--tall">
           <a class="gallery__link" href="assets/img/gallery/photo-11.jpg"><img src="assets/img/gallery/photo-11.jpg" alt="Walking across the white sand dunes of White Sands National Park" loading="lazy"></a>
           <figcaption>White Sands National Park, New Mexico</figcaption>
         </figure>
-        <figure class="gallery__item gallery__item--tall">
-          <a class="gallery__link" href="assets/img/gallery/photo-07.jpg"><img src="assets/img/gallery/photo-07.jpg" alt="Parasailing high above the sea in Mexico" loading="lazy"></a>
-          <figcaption>Parasailing, Mexico</figcaption>
+        <figure class="gallery__item">
+          <a class="gallery__link" href="assets/img/gallery/photo-12.jpg"><img src="assets/img/gallery/photo-12.jpg" alt="Sitting on the cliff edge above Horseshoe Bend" loading="lazy"></a>
+          <figcaption>Horseshoe Bend, Arizona</figcaption>
         </figure>
         <figure class="gallery__item">
           <a class="gallery__link" href="assets/img/gallery/photo-06.jpg"><img src="assets/img/gallery/photo-06.jpg" alt="Holding up trophies and medals at the KUET annual sports event" loading="lazy" style="object-position: 50% 25%"></a>
@@ -140,10 +142,15 @@
     <button class="lightbox__btn lightbox__close" type="button" aria-label="Close">&times;</button>
     <button class="lightbox__btn lightbox__prev" type="button" aria-label="Previous photo">&#8249;</button>
     <figure class="lightbox__figure">
-      <img class="lightbox__img" src="" alt="">
+      <img class="lightbox__img" src="" alt="" draggable="false">
       <figcaption class="lightbox__caption"></figcaption>
     </figure>
     <button class="lightbox__btn lightbox__next" type="button" aria-label="Next photo">&#8250;</button>
+    <div class="lightbox__zoom" role="group" aria-label="Zoom">
+      <button class="lightbox__btn lightbox__zoom-out" type="button" aria-label="Zoom out">&minus;</button>
+      <button class="lightbox__zoom-level" type="button" aria-label="Reset zoom" title="Reset zoom">100%</button>
+      <button class="lightbox__btn lightbox__zoom-in" type="button" aria-label="Zoom in">+</button>
+    </div>
   </dialog>
   <script src="assets/js/gallery.js"></script>
 
